@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Customers</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <script src="/javascripts/jquery-3.3.1.min.js"></script>
+        <script src="/javascripts/bootstrap.min.js" crossorigin="anonymous"></script>
+        <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+       
+    </head>
+    <body>
+        <div class="jumbotron-fluid text-center">
+            <h3>List of Customers</h3>           
+        </div>
+        <div class="menuslist">
+            <a href="/" class="btn btn-link btn-outline-dark">Home</a>  
+            <a href="/customers/add" class="btn btn-link btn-outline-dark">New Customer</a> 
+            <a href="/customers" class="btn btn-link btn-outline-dark">Customer List</a>
+        </div> 
+        <div class="container">            
+           
+         <% if (messages.error) { %>
+          <p class="alert alert-danger mt-4"><%- messages.error %></p>
+        <% } %>
+
+        <% if (messages.success) { %>
+        <p class="alert alert-success mt-4"><%- messages.success %></p>
+        <% } %>  
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">State</th>
+                    <th width="200px">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% if(data.length){
+
+                for(var i = 0; i< data.length; i++) {%>  
+                <tr>
+                    <th scope="row"><%= (i+1) %></th>
+                    <td><%= data[i].name%></td>
+                    <td><%= data[i].email%></td>
+                    <td><%= data[i].phone_number%></td>
+                    <td><%= data[i].address%></td>
+                    <td><%= data[i].state%></td>
+                    <td>
+                        <a class="btn btn-success btn-sm edit" href="../customers/edit/<%=data[i].id%>"><i class="fa fa-edit"></i></a>                       
+                        <a class="btn btn-danger btn-sm delete" onclick="return alert('Are You sure?')" href="../customers/delete/<%=data[i].id%>"><i class="fa fa-trash"></i></a>                       
+                    </td>
+                </tr>
+                <% }
+
+                }else{ %>
+                <tr>
+                    <td colspan="3">No user</td>
+                </tr>
+                <% } %>    
+
+            </tbody>
+        
+        </table>
+        </div>
+    </body>
+</html>

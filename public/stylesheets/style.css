@@ -1,0 +1,26 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #eee !important;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.container{
+    
+    border: 1px solid #ccc;
+    padding: 30px !important;
+    border-radius: 10px;    
+    margin: auto;
+    background: #fff;
+}
+
+#addcust .form-group{
+    text-align: right;
+}
+.menuslist{
+    margin-left: 30px;
+    margin-bottom: 10px;
+}

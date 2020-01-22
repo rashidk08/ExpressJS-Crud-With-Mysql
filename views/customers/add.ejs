@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <script src="/javascripts/jquery-3.3.1.min.js"></script>
+        <script src="/javascripts/bootstrap.min.js" crossorigin="anonymous"></script>
+        <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="text-center">              
+            <h3><%= title %></h3>           
+        </div>
+        <div class="menuslist">
+            <a href="/" class="btn btn-link btn-outline-dark">Home</a>  
+            <a href="/customers" class="btn btn-link btn-outline-dark">Customer List</a>
+        </div> 
+
+        <div class="container">
+            <div >
+
+                <% if (messages.error) { %>
+                <p style="color:red"><%- messages.error %></p>
+                <% } %>
+
+                <% if (messages.success) { %>
+                <p style="color:green"><%- messages.success %></p>
+                <% } %>
+                <form action="/customers/add" method="post" name="form1" id="addcust">
+                    <div class="row" >  
+                        <div class=" form-group col-sm-3">
+                            <label for="exampleInputPassword1">Name</label>
+                        </div>
+                        <div class=" form-group col-sm-6">
+                            <input type="text" class="form-control" name="name" id="name" value="<%= name %>" placeholder="Name" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row" >  
+                        <div class=" form-group col-sm-3">
+                            <label for="exampleInputEmail1">Email address</label>
+                        </div>
+                        <div class=" form-group col-sm-6">
+                            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" value="" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row" > 
+                        <div class=" form-group col-sm-3">
+                            <label for="exampleInputEmail1">Password</label>
+                        </div>
+                        <div class=" form-group col-sm-6">
+                            <input type="password" name="password" autocomplete="off" class="form-control" id="password" aria-describedby="password" placeholder="password" value="">
+                        </div>
+                    </div>
+                    <div class="row" >  
+                        <div class=" form-group col-sm-3">
+                            <label for="phone_number">Phone Number</label>
+                        </div>
+                        <div class=" form-group col-sm-6">
+                            <input type="text" class="form-control" autocomplete="off" name="phone_number" id="phone_number" value="" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <div class="row" >  
+                        <div class=" form-group col-sm-3">
+                            <label for="address">Address</label>
+                        </div>
+                        <div class=" form-group col-sm-6">
+                            <textarea class="form-control" name="address" id="address" placeholder="Address"></textarea>
+                        </div>
+                    </div>
+                    <div class="row" >  
+                        <div class=" form-group col-sm-3">
+                            <label for="state">State</label>
+                        </div>
+                        <div class=" form-group col-sm-6">
+                            <input type="text" autocomplete="off" class="form-control" name="state" id="state" value="" placeholder="state">
+                        </div>
+                    </div>
+                    <div class="row" >  
+                        <div class=" form-group col-sm-3">&nbsp;</div>
+                        <div class="col-sm-6">
+                            <input type="submit" class="btn btn-success" value="Submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>
